@@ -1,0 +1,485 @@
+:root {
+  --color-forest-dark: #1b3a2b;
+  --color-forest: #2f6b45;
+  --color-forest-light: #4f9d63;
+  --color-leaf: #8fce9e;
+  --color-cream: #f7f4ec;
+  --color-earth: #6b4f3b;
+  --color-accent: #d9822b;
+  --color-accent-light: #f0b86e;
+  --color-sun: #e0b64a;
+  --color-text: #223326;
+  --color-text-muted: #5a6b5d;
+  --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(143, 206, 158, 0.35), transparent 40%),
+    radial-gradient(circle at 85% 0%, rgba(79, 157, 99, 0.25), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(111, 79, 59, 0.12), transparent 50%),
+    var(--color-cream);
+  line-height: 1.65;
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+p a:hover {
+  color: var(--color-earth);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  background: var(--color-cream);
+  color: var(--color-forest-dark);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 1.75rem;
+  overflow-x: auto;
+}
+
+.nav a {
+  position: relative;
+  font-weight: 700;
+  color: var(--color-forest-dark);
+  padding: 0.3rem 0.05rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.nav a:hover {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hero */
+.hero {
+  background:
+    linear-gradient(160deg, rgba(27, 58, 43, 0.88), rgba(47, 107, 69, 0.82) 70%),
+    url('../images/casale-1.jpeg') center / cover no-repeat;
+  color: var(--color-cream);
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+
+.hero h1 {
+  font-size: 2.9rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-subtitle {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-leaf);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-2px);
+}
+
+/* Stats */
+.stats {
+  padding: 3rem 1.5rem 1rem;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-forest);
+}
+
+.stat-card:nth-child(2) .stat-number {
+  color: var(--color-accent);
+}
+
+.stat-card:nth-child(3) .stat-number {
+  color: var(--color-earth);
+}
+
+.stat-label {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Chi siamo */
+.chi-siamo {
+  padding: 5rem 1.5rem;
+  background:
+    linear-gradient(rgba(247, 244, 236, 0.88), rgba(247, 244, 236, 0.88)),
+    url('../images/alberi.jpeg') center / cover fixed no-repeat;
+}
+
+.chi-siamo-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.media-placeholder {
+  aspect-ratio: 4 / 3;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--color-leaf), var(--color-forest-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.media-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 1rem;
+  display: block;
+}
+
+.chi-siamo h2 {
+  color: var(--color-forest-dark);
+  font-size: 2.2rem;
+}
+
+.chi-siamo .quote {
+  font-style: italic;
+  color: var(--color-forest);
+  border-left: 3px solid var(--color-leaf);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.values-list li {
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.values-list strong {
+  color: var(--color-forest);
+}
+
+.values-list li:nth-child(2) strong {
+  color: var(--color-accent);
+}
+
+.values-list li:nth-child(3) strong {
+  color: var(--color-earth);
+}
+
+/* Il luogo */
+.il-luogo {
+  padding: 5rem 1.5rem;
+  text-align: center;
+  background:
+    linear-gradient(rgba(247, 244, 236, 0.85), rgba(247, 244, 236, 0.85)),
+    url('../images/casale-3.jpeg') center / cover fixed no-repeat;
+}
+
+.il-luogo h2 {
+  color: var(--color-forest-dark);
+  font-size: 2.2rem;
+}
+
+.il-luogo > .container > p {
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  color: var(--color-text-muted);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  display: block;
+}
+
+/* Storia */
+.storia {
+  padding: 5rem 1.5rem;
+  background:
+    linear-gradient(160deg, rgba(247, 238, 222, 0.86), rgba(240, 224, 197, 0.9)),
+    url('../images/casale-affresco.jpeg') center / cover fixed no-repeat;
+}
+
+.storia h2 {
+  color: var(--color-earth);
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.storia .container {
+  max-width: 700px;
+}
+
+.storia-source {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.storia-source a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* Il territorio */
+.il-territorio {
+  padding: 5rem 1.5rem;
+  text-align: center;
+  background:
+    linear-gradient(rgba(247, 244, 236, 0.85), rgba(247, 244, 236, 0.85)),
+    url('../images/uva.jpeg') center / cover fixed no-repeat;
+}
+
+.il-territorio h2 {
+  color: var(--color-forest-dark);
+  font-size: 2.2rem;
+}
+
+.il-territorio > .container > p {
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  color: var(--color-text-muted);
+}
+
+.banner-photo {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 1rem;
+  display: block;
+}
+
+/* Collaborazioni */
+.collaborazioni {
+  padding: 5rem 1.5rem;
+  text-align: center;
+  background:
+    linear-gradient(rgba(247, 240, 219, 0.88), rgba(247, 240, 219, 0.88)),
+    url('../images/casale-scala.jpeg') center / cover fixed no-repeat;
+}
+
+.collaborazioni h2 {
+  color: var(--color-forest-dark);
+  font-size: 2.2rem;
+}
+
+.collaborazioni > .container > p {
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  color: var(--color-text-muted);
+}
+
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.partner-logo {
+  display: block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.partner-logo:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
+
+/* Contatti */
+.contatti {
+  padding: 5rem 1.5rem;
+  background:
+    linear-gradient(160deg, rgba(143, 206, 158, 0.9) 0%, rgba(79, 157, 99, 0.9) 55%, rgba(47, 107, 69, 0.92) 100%),
+    url('../images/casale-corridoio.jpeg') center / cover fixed no-repeat;
+  color: var(--color-cream);
+}
+
+.contatti-inner h2 {
+  color: var(--color-cream);
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.contatti-inner > p {
+  text-align: center;
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  color: var(--color-cream);
+  opacity: 0.9;
+}
+
+.contatti-info {
+  text-align: center;
+}
+
+.contatti-info p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.contatti-info a {
+  color: var(--color-cream);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--color-forest-dark);
+  color: var(--color-cream);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .chi-siamo-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .header-inner {
+    padding: 0.5rem 1rem;
+  }
+  .logo-img {
+    height: 40px;
+  }
+  .nav {
+    gap: 1.1rem;
+    font-size: 0.85rem;
+  }
+}
